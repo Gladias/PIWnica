@@ -1,0 +1,149 @@
+* {
+    font-family: 'Source Code Pro', monospace;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.nav-bar {
+    height: 10%;
+    width: 100%;
+    background: #443318 0% 0% no-repeat padding-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-bar button {
+    font-size: 1.6em;
+    text-shadow: 0px 3px 6px #00000029;
+    background: #DFC149 0% 0% no-repeat padding-box;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 0.4em;
+    outline: none;
+}
+
+.nav-bar button:hover {
+    background-color: #E3BE29;
+}
+
+.search-bar input {
+    font-size: 1.6em;
+    background: #DCD0A0 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 15px;
+    padding: 0.4em;
+    outline: none;
+}
+
+.main-page {
+    background: transparent url('../img/background.png') 0% 0% no-repeat padding-box;
+    opacity: 0.85;
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid black;
+    border-radius: 36px;
+    opacity: 0.85;
+    height: 55%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.login-row {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-row input {
+    border: 1px solid #707070;
+    border-radius: 8px;
+    height: 50%;
+    width: 50%;
+    font-size: 1.2em;
+}
+
+.login-form button[type=submit] {
+    height: 10%;
+    width: 50%;
+    background: #EEE64B 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 16px;
+    opacity: 1;
+    font-size: 1.6em;
+    outline: none;
+}
+
+.login-form button[type=submit]:hover {
+    background-color: #E3BE29;
+}
+
+@media only screen and (max-device-width: 420px) {
+    * {
+        font-size: 36px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .main-page {
+        background-position: center;
+        background-size: cover;
+    }  
+
+    .nav-bar button, .search-bar input {
+        display: none;
+    }
+
+    .nav-bar {
+        justify-content: center;
+    }
+
+    .login-form {
+        width: 90%;
+    }
+    
+    .login-row input {
+        width: 80%;
+        font-size: 1.2em;
+    }
+
+    .login-row {
+        flex-direction: column;
+    }
+    
+    .login-form button[type=submit] {
+        margin-bottom: 0.8em;
+    }
+}
