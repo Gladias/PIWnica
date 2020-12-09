@@ -19,8 +19,17 @@
             <button>Zarejestruj się</button>
         </nav>
         <div class="main-page">
-            <div class="login-form">
-                <h1>Logowanie</h3>
+            <form class="login-form" action="login" method="POST">
+                <h1>Logowanie</h1>
+                <h3>
+                    <?php
+                        if(isset($messages)) {
+                            foreach ($messages as $message) {
+                                echo $message;
+                            }
+                        }
+                    ?>
+                </h3>
                 <div class="login-row">
                     <h4>Nazwa użytkownika</h4>
                     <input name="login" type="text">
@@ -31,7 +40,7 @@
                 </div>
                 <p>Przypomnij hasło</p>
                 <button type="submit">Zaloguj</button>
-            </div>
+            </form>
         </div>
     </div>
 </body>
