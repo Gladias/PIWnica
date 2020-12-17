@@ -63,7 +63,7 @@ body {
     align-items: center;
 }
 
-.login-form {
+.register-form, .login-form {
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border: 1px solid black;
@@ -77,8 +77,13 @@ body {
     align-items: center;
 }
 
+.register-form {
+    width: 35%;
+    height: 65%;
+}
+
 .login-row {
-    width: 70%;
+    width: 75%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -93,7 +98,7 @@ body {
     font-size: 1.2em;
 }
 
-.login-form button[type=submit] {
+.login-form button[type=submit], .register-form button[type=submit] {
     height: 10%;
     width: 50%;
     background: #EEE64B 0% 0% no-repeat padding-box;
@@ -104,7 +109,7 @@ body {
     outline: none;
 }
 
-.login-form button[type=submit]:hover {
+.login-form button[type=submit]:hover, .register-form button[type=submit]:hover {
     background-color: #E3BE29;
 }
 
@@ -130,8 +135,9 @@ body {
         justify-content: center;
     }
 
-    .login-form {
+    .login-form, .register-form {
         width: 90%;
+        height: 80%;
     }
     
     .login-row input {
@@ -143,7 +149,8 @@ body {
         flex-direction: column;
     }
     
-    .login-form button[type=submit] {
+    .login-form button[type=submit], .register-form button[type=submit] {
+        margin-top: 0.8em;
         margin-bottom: 0.8em;
     }
 }
