@@ -17,7 +17,15 @@ class DefaultController extends AppController {
         $this->render('login');
     }
 
-    public function displayCatalog() {
+    public function catalog() {
         $this->render('catalog');
+    }
+
+    public function news() {
+        $this->render('news');
+    }
+
+    public function beer() {
+        $this->render('beer');
     }
 }
