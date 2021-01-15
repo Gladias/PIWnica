@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/nav-bar.css">
-    <link rel="stylesheet" type="text/css" href="public/css/beer-style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/beer.css">
     <script src="https://kit.fontawesome.com/6632ce43ac.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">

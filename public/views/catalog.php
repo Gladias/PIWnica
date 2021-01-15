@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/nav-bar.css">
+    <link rel="stylesheet" type="text/css" href="public/css/catalog.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
     <title>Katalog piw</title>
@@ -9,15 +10,7 @@
 
 <body>
     <div class="container">
-        <nav class="nav-bar">
-            <img id="logo" src="../img/logo.png">
-            <div class="search-bar">
-                <input type="search" placeholder="Szukaj piw...">
-            </div>
-            <button>Piwne newsy</button>
-            <button>Katalog piw</button>
-            <button onclick="window.location.href='login'">Zaloguj się</button>
-        </nav>
+        <?php include('nav-bar.php') ?>
         <div class="catalog-container">
             <div class="catalog-title">
                 <h2>Najlepsze piwa w gatunku: Porter Bałtycki</h2>
