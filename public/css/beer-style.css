@@ -1,0 +1,193 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+}
+
+.main-page {
+    background: transparent url('../img/background.png') 0 0 no-repeat padding-box;
+    background-size: cover;
+    height: 92%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.beer-section, .comments-section {
+    background: #FFFFFF 0 0 no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 0.9;
+    margin: 4rem 5rem;
+}
+
+.beer-section {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.beer-image {
+    width: 40%;
+    height: 90%;
+    /*margin: 3rem;*/
+    border: 1px solid #707070;
+    border-radius: 1rem;
+    opacity: 1;
+    object-fit: cover;
+}
+
+.info {
+    width: 50%;
+    height: 90%;
+    /*margin: 2rem 3rem;*/
+}
+
+.details {
+    background: #DBB06B 0 0 no-repeat padding-box;
+    box-shadow: 0 3px 6px #00000029;
+    border: 2px solid #707070;
+    border-radius: 19px;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 60%;
+}
+
+.details-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+
+.details-row div {
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.description {
+    background: #FFFFFF 0 0 no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+    height: 20%;
+    overflow: auto;
+}
+
+.description p {
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0.4rem;
+}
+
+.comments-section {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.date {
+    grid-area: date;
+    margin-bottom: 0.2rem;
+    align-self: end;
+}
+
+.author-image {
+    grid-area: image;
+}
+
+.author {
+    grid-area: author;
+    align-self: start;
+    margin-top: 0.2rem;
+}
+
+.comment-content {
+    grid-area: content;
+    background: #FFFFFF 0 0 no-repeat padding-box;
+    border: 1px solid #707070;
+    border-right-color: #FFFFFF;
+    border-radius: 15px 0 0 15px;
+    opacity: 1;
+    width: 98%;
+    height: 90%;
+    min-width: 0;
+    min-height: 0;
+    overflow: auto;
+    font-size: 0.8rem;
+    padding: 0.2rem;
+    margin: 0;
+    justify-self: left;
+}
+
+.comment-rate {
+    grid-area: rate;
+}
+
+.comment-stars {
+    grid-area: star;
+    display: flex;
+    flex-direction: row;
+}
+
+.comment {
+    width: 95%;
+    height: 30%;
+    /*border: 1px solid #707070;*/
+
+    display: grid;
+    grid-template-columns: 1fr 1.4fr repeat(2, 0.8fr);
+    grid-template-rows: 0.7fr 1.3fr 1.3fr 0.7fr;
+    gap: 5px 5px;
+    grid-template-areas:
+    ". . . date"
+    "image content content content"
+    "author content content content"
+    ". rate star star";
+    justify-items: center;
+    align-items: center;
+}
+
+
+.comment img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+/* Scrollbar styles */
+
+.comment-content::-webkit-scrollbar-track, .description::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+.comment-content::-webkit-scrollbar, .description::-webkit-scrollbar
+{
+    width: 8px;
+    background-color: #F5F5F5;
+}
+
+.comment-content::-webkit-scrollbar-thumb, .description::-webkit-scrollbar-thumb
+{
+    background-color: #F90;
+    background-image: -webkit-linear-gradient(45deg,
+    rgba(255, 255, 255, .2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, .2) 50%,
+    rgba(255, 255, 255, .2) 75%,
+    transparent 75%,
+    transparent)
+}
+
+
