@@ -11,6 +11,8 @@ Routing::get('catalog', 'DefaultController');
 Routing::get('news', 'DefaultController');
 Routing::get('beer', 'DefaultController');
 Routing::get('search', 'DefaultController');
+Routing::get('start', 'DefaultController');
+Routing::post('addBeer', 'BeerController');
 Routing::post('login', 'SecurityController');
 
 Routing::run($path);

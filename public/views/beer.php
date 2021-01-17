@@ -11,51 +11,53 @@
 <body>
     <div class="container">
         <?php include('nav-bar.php') ?>
+        <?php var_dump($beer); ?>
+
         <div class="main-page">
             <div class="beer-section">
-                <img class="beer-image" src="public/img/beer-placeholder.jpg" alt="Beer image">
+                <img class="beer-image" src="public/uploads/<?php $beer->getImage() ?>" alt="Beer image">
                 <div class="info">
-                    <h1>Żywiec Białe</h1>
+                    <h1><?php $beer->getName() ?></h1>
                     <div class="details">
                         <div class="details-row">
                             <h3>Ocena</h3>
                             <div>
-                                <h3>3.9/5</h3>
+                                <h3><?php $beer->getRatesSum() ?></h3>
                                 <i class="fas fa-star"></i>
                             </div>
                         </div>
                         <div class="details-row">
                             <h3>Gatunek</h3>
                             <div>
-                                <h3>Witbier</h3>
+                                <h3><?php $beer->getType() ?></h3>
                                 <i class="fas fa-beer"></i>
                             </div>
                         </div>
                         <div class="details-row">
                             <h3>Browar</h3>
                             <div>
-                                <h3>Żywiec</h3>
+                                <h3><?php $beer->getBrewery() ?></h3>
                                 <i class="fas fa-industry"></i>
                             </div>
                         </div>
                         <div class="details-row" >
                             <h3>Kraj</h3>
                             <div>
-                                <h3>Polska</h3>
+                                <h3><?php $beer->getCountry() ?></h3>
                                 <i class="fas fa-flag"></i>
                             </div>
                         </div>
                         <div class="details-row">
                             <h3>Alkohol</h3>
                             <div>
-                                <h3>4.9</h3>
+                                <h3><?php $beer->getAlcohol() ?></h3>
                                 <i class="fas fa-percent"></i>
                             </div>
                         </div>
                         <div class="details-row">
                             <h3>Średnia cena</h3>
                             <div>
-                                <h3>3.99zł</h3>
+                                <h3><?php $beer->getPrice() ?></h3>
                                 <i class="fas fa-money-bill-wave"></i>
                             </div>
                         </div>
@@ -63,11 +65,7 @@
                     <h2>Opis</h2>
                     <div class="description">
                         <p>
-                            Białe piwo pszeniczne pojawiło się po raz pierwszy w długiej historii browaru Żywiec.
-                            Polecana temperatura spożycia piwa to przedział 4-6°C.
-                            Uwarzone ze słodem pszenicznym i jęczmiennym. Przy procesie warzenia użyta również kolendra.
-                            Brak informacji o chmielu jakim piwo zostało doprawione.
-                            Barwa słomkowa, lekko opalizująca. Piana przy nalewaniu dość obfita, drobnoziarnista.
+                            <?php $beer->getDescription() ?>
                         </p>
                     </div>
                 </div>
