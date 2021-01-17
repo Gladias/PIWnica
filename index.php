@@ -10,6 +10,7 @@ Routing::get('register', 'DefaultController');
 Routing::get('catalog', 'DefaultController');
 Routing::get('news', 'DefaultController');
 Routing::get('beer', 'DefaultController');
+Routing::get('search', 'DefaultController');
 Routing::post('login', 'SecurityController');
 
 Routing::run($path);

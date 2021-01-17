@@ -28,4 +28,8 @@ class DefaultController extends AppController {
     public function beer() {
         $this->render('beer');
     }
+
+    public function search() {
+        $this->render('search');
+    }
 }

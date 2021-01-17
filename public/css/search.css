@@ -1,0 +1,89 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-page {
+    width: 100%;
+    height: 92%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: transparent url('../img/search-background.jpeg') 0 0 no-repeat padding-box;
+    background-size: cover;
+    opacity: 0.85;
+}
+
+.search-title {
+    background-color: white;
+    border-radius: 3rem;
+    opacity: 0.8;
+    padding: 0.5rem;
+}
+
+.search-result {
+    margin: 0.2rem;
+    border-top: 1px solid #000000;
+    border-radius: 0 0 3rem 3rem;
+    background-color: white;
+    opacity: 0.9;
+    width: 45%;
+    height: 25%;
+    display: grid;
+    grid-template-columns: 0.8fr 0.8fr 1.2fr 1.2fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "beer beer title title"
+    "beer beer description description";
+}
+
+.beer {
+    grid-area: beer;
+    height: 90%;
+    width: auto;
+    justify-self: center;
+    align-self: center;
+    border-radius: 2rem;
+}
+
+.title {
+    grid-area: title;
+    align-self: center;
+}
+
+.description {
+    grid-area: description;
+    overflow: auto;
+    font-size: 0.8rem;
+}
+
+
+/* Scroll styles */
+
+.description::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+.description::-webkit-scrollbar
+{
+    width: 8px;
+    background-color: #F5F5F5;
+}
+
+.description::-webkit-scrollbar-thumb
+{
+    background-color: #F90;
+    background-image: -webkit-linear-gradient(45deg,
+    rgba(255, 255, 255, .2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, .2) 50%,
+    rgba(255, 255, 255, .2) 75%,
+    transparent 75%,
+    transparent)
+}
+
