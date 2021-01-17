@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/nav-bar.css">
     <link rel="stylesheet" type="text/css" href="public/css/search.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/6632ce43ac.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
     <title>Rejestracja</title>
 </head>
@@ -12,8 +13,15 @@
 <div class="container">
     <?php include('nav-bar.php') ?>
     <div class="main-page">
-        <div class="search-title">
-            <h2>Wyniki wyszukiwania dla: Imperium Prunum</h2>
+        <div class="top">
+            <div class="search-title">
+                <h2>Wyniki wyszukiwania dla: Imperium Prunum</h2>
+            </div>
+
+            <div onclick="window.location.href='add_beer'" class="add-beer">
+                <i class="fas fa-plus-square"></i>
+                Dodaj piwo
+            </div>
         </div>
 
         <div class="search-result">
