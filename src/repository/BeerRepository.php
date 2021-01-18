@@ -51,7 +51,7 @@ class BeerRepository extends Repository
         ]);
     }
 
-    public function getBeerByTitle(string $searchString) {
+    public function getBeerByName(string $searchString) {
         $searchString = '%'.strtolower($searchString).'%';
 
         $stmt = $this->database->connect()->prepare('

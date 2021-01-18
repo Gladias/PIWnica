@@ -60,7 +60,7 @@ class BeerController extends AppController {
             header('Content-type: application/json');
             http_response_code(200);
 
-            echo json_encode($this->beerRepository->getBeerByTitle($decoded['search']));
+            echo json_encode($this->beerRepository->getBeerByName($decoded['search']));
         }
     }
 

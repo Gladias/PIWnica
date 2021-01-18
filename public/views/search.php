@@ -19,14 +19,14 @@
                 <h2>Wyniki wyszukiwania dla: Imperium Prunum</h2>
             </div>
 
-            <div onclick="window.location.href='add_beer'" class="add-beer">
+            <div onclick="window.location.href='addBeer'" class="add-beer">
                 <i class="fas fa-plus-square"></i>
                 Dodaj piwo
             </div>
         </div>
 
         <section class="beers">
-            <div class="search-result">
+            <div class="search-result" onclick="location.href='beer'">
                 <img class="beer" src="public/img/beer-placeholder.jpg" alt="Beer">
                 <h3 class="title">Kormoran imperium prunum</h3>
                 <p class="description">

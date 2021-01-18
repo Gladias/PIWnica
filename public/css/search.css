@@ -65,6 +65,10 @@
     "beer beer description description";
 }
 
+.search-result:hover {
+    background-color: #d4d4d4;
+}
+
 .beer {
     grid-area: beer;
     height: 90%;
