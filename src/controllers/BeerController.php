@@ -2,6 +2,7 @@
 
 require_once 'AppController.php';
 require_once __DIR__ .'/../models/Beer.php';
+require_once __DIR__.'/../repository/BeerRepository.php';
 
 class BeerController extends AppController {
 
@@ -10,6 +11,14 @@ class BeerController extends AppController {
     const UPLOAD_DIRECTORY = '/../public/uploads/';
 
     private $messages = [];
+    private $beerRepository;
+
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->beerRepository = new BeerRepository();
+    }
 
     public function addBeer() {
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file']) ) {
@@ -28,6 +37,8 @@ class BeerController extends AppController {
                 $_POST['alcohol'],
                 $_POST['price']
             );
+
+            $this->beerRepository->addBeer($beer);
 
             return $this->render('beer', ['beer' => $beer]);
         }
