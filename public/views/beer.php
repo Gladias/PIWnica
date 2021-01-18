@@ -11,8 +11,6 @@
 <body>
     <div class="container">
         <?php include('nav-bar.php') ?>
-        <?php var_dump($beer); ?>
-
         <div class="main-page">
             <div class="beer-section">
                 <img class="beer-image" src="public/uploads/<?php $beer->getImage() ?>" alt="Beer image">

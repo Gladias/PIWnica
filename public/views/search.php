@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/search.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <script src="https://kit.fontawesome.com/6632ce43ac.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="public/js/search.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
     <title>Rejestracja</title>
 </head>
@@ -24,25 +25,28 @@
             </div>
         </div>
 
-        <div class="search-result">
-            <img class="beer" src="public/img/beer-placeholder.jpg" alt="Beer">
-            <h3 class="title">Kormoran imperium prunum</h3>
-            <p class="description">
-                Białe piwo pszeniczne pojawiło się po raz pierwszy w długiej historii browaru Żywiec.
-                Polecana temperatura spożycia piwa to przedział 4-6°C.
-                Uwarzone ze słodem pszenicznym i jęczmiennym.
-            </p>
-        </div>
-
-        <div class="search-result">
-            <img class="beer" src="public/img/beer-placeholder.jpg" alt="Beer">
-            <h3 class="title">Kormoran imperium prunum</h3>
-            <p class="description">
-                Białe piwo pszeniczne pojawiło się po raz pierwszy w długiej historii browaru Żywiec.
-                Polecana temperatura spożycia piwa to przedział 4-6°C.
-                Uwarzone ze słodem pszenicznym i jęczmiennym.
-            </p>
-        </div>
+        <section class="beers">
+            <div class="search-result">
+                <img class="beer" src="public/img/beer-placeholder.jpg" alt="Beer">
+                <h3 class="title">Kormoran imperium prunum</h3>
+                <p class="description">
+                    Białe piwo pszeniczne pojawiło się po raz pierwszy w długiej historii browaru Żywiec.
+                    Polecana temperatura spożycia piwa to przedział 4-6°C.
+                    Uwarzone ze słodem pszenicznym i jęczmiennym.
+                </p>
+            </div>
+        </section>
     </div>
 </div>
 </body>
+
+<template id="beer-template">
+    <div class="search-result">
+        <img class="beer" src="" alt="Beer">
+        <h3 class="title">Nazwa piwa</h3>
+        <p class="description">
+            Opis piwa
+        </p>
+    </div>
+</template>
+
