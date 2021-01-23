@@ -3,6 +3,7 @@
 
 class Beer
 {
+    private $id;
     private $name;
     private $description;
     private $image;
@@ -14,21 +15,33 @@ class Beer
     private $alcohol;
     private $price;
 
-    public function __construct($name, $description, $image, $type, $brewery, $country, $alcohol, $price)
+    public function __construct($name, $description, $image, $type, $brewery, $country, $alcohol, $price,
+                                $rates_sum = 0, $rates_number = 0, $id=null)
     {
         $this->name = $name;
         $this->description = $description;
         $this->image = $image;
-        $this->rates_sum = 0;
-        $this->rates_number = 0;
+        $this->rates_sum = $rates_sum;
+        $this->rates_number = $rates_number;
         $this->type = $type;
         $this->brewery = $brewery;
         $this->country = $country;
         $this->alcohol = $alcohol;
         $this->price = $price;
+        $this->id = $id;
     }
 
     /*Getters and setters*/
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
 
     public function getName(): string
     {

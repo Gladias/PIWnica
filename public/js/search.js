@@ -25,7 +25,7 @@ search.addEventListener("keyup", function(event) {
 
 function loadBeers(beers) {
     beers.forEach(beer => {
-        console.log(beer);
+        console.log(beer.id);
         createBeer(beer);
     });
 }
@@ -35,6 +35,9 @@ function createBeer(beer) {
 
     const clone = template.content.cloneNode(true);
 
+    const a = clone.querySelector(".search-result");
+    a.href = `beer?id=` + beer.id;
+    a.id = beer.id;
     const image = clone.querySelector("img");
     image.src = `/public/uploads/${beer.image}`
     const name = clone.querySelector("h3");

@@ -25,11 +25,11 @@ class DefaultController extends AppController {
         $this->render('news');
     }
 
-    public function beer() {
-        $this->render('beer');
-    }
-
     public function search() {
         $this->render('search');
+    }
+
+    public function start() {
+        $this->render('start');
     }
 }

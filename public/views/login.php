@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/login_and_register.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="public/js/search.js" defer></script>
     <title>Logowanie</title>
 </head>
 

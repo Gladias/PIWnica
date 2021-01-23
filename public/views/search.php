@@ -12,11 +12,19 @@
 
 <body>
 <div class="container">
-    <?php include('nav-bar.php') ?>
+    <nav class="nav-bar">
+        <img id="logo" src="public/img/logo.png">
+        <div class="search-bar">
+            <input type="search" placeholder="Szukaj piw...">
+        </div>
+        <button onclick="window.location.href='news'">Piwne newsy</button>
+        <button onclick="window.location.href='catalog'">Katalog piw</button>
+        <button onclick="window.location.href='register'">Zarejestruj się</button>
+    </nav>
     <div class="main-page">
         <div class="top">
             <div class="search-title">
-                <h2>Wyniki wyszukiwania dla: Imperium Prunum</h2>
+                <h2>Wyniki wyszukiwania dla: <?= $query ?></h2>
             </div>
 
             <div onclick="window.location.href='addBeer'" class="add-beer">
@@ -26,27 +34,27 @@
         </div>
 
         <section class="beers">
-            <div class="search-result" onclick="location.href='beer'">
-                <img class="beer" src="public/img/beer-placeholder.jpg" alt="Beer">
-                <h3 class="title">Kormoran imperium prunum</h3>
-                <p class="description">
-                    Białe piwo pszeniczne pojawiło się po raz pierwszy w długiej historii browaru Żywiec.
-                    Polecana temperatura spożycia piwa to przedział 4-6°C.
-                    Uwarzone ze słodem pszenicznym i jęczmiennym.
-                </p>
-            </div>
+            <?php foreach ($beers as $beer): ?>
+                <a class="search-result" id="<?= $beer->getId(); ?>" href="beer?id=<?= $beer->getId(); ?>">
+                    <img class="beer" src="public/uploads/<?= $beer->getImage(); ?>" alt="Beer">
+                    <h3 class="title"><?= $beer->getName(); ?></h3>
+                    <p class="description">
+                        <?= $beer->getDescription(); ?>
+                    </p>
+                </a>
+            <?php endforeach; ?>
         </section>
     </div>
 </div>
 </body>
 
 <template id="beer-template">
-    <div class="search-result">
+    <a class="search-result" id="beer-id" href="">
         <img class="beer" src="" alt="Beer">
         <h3 class="title">Nazwa piwa</h3>
         <p class="description">
             Opis piwa
         </p>
-    </div>
+    </a>
 </template>
 

@@ -57,6 +57,8 @@
     width: 45%;
     height: 25%;
     display: grid;
+    color: black;
+    text-decoration: none;
     grid-template-columns: 0.7fr 0.7fr 1.3fr 1.3fr;
     grid-template-rows: 1fr 1fr;
     gap: 0px 0px;

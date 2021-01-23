@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
     <script type="text/javascript" src="public/js/script.js" defer></script>
+    <script type="text/javascript" src="public/js/search.js" defer></script>
     <title>Rejestracja</title>
 </head>
 

@@ -19,16 +19,12 @@ class SecurityController extends AppController
 
         $user = $userRepository->getUser($login);
 
-        if(!$user) {
-            return $this->render('login', ['messages' => ['User does not exist!']]);
-        }
-
-        if ($user->getLogin() !== $login) {
-            return $this->render('login', ['messages' => ['User with this login does not exist!']]);
+        if (!$user or $user->getLogin() !== $login) {
+            return $this->render('login', ['messages' => ['Użytkownik nie istnieje!']]);
         }
 
         if ($user->getPassword() !== $password) {
-            return $this->render('login', ['messages' => ['Wrong password!']]);
+            return $this->render('login', ['messages' => ['Złe hasło!']]);
         }
 
         $url = "http://$_SERVER[HTTP_HOST]";

@@ -19,9 +19,41 @@ class BeerController extends AppController {
         $this->beerRepository = new BeerRepository();
     }
 
-    public function beers() {
-        /*$beers = $this->beerRepository->getBeers();*/
-        $this->render('search');
+    public function beer($id) {
+        if(!isset($_GET['id']))
+            return $this->render('search');
+
+        $id = (int)$_GET['id'];
+
+        $beer = $this->beerRepository->getBeer($id);
+
+        $this->render('beer', ['beer' => $beer]);
+    }
+
+    public function beers($query) {
+        if(!isset($_GET['query']))
+            return $this->render('search');
+
+        $beers = $this->beerRepository->getBeerByName($_GET['query']);
+
+        $result = [];
+        foreach ($beers as $beer) {
+            $result[] = new Beer(
+                $beer['name'],
+                $beer['description'],
+                $beer['image'],
+                $beer['type'],
+                $beer['brewery'],
+                $beer['country'],
+                $beer['alcohol'],
+                $beer['price'],
+                $beer['rates_sum'],
+                $beer['rates_number'],
+                $beer['id']
+            );
+        }
+
+        return $this->render('search', ['query' => $_GET['query'], 'beers' => $result]);
     }
 
     public function addBeer() {
@@ -44,13 +76,14 @@ class BeerController extends AppController {
 
             $this->beerRepository->addBeer($beer);
 
+
             return $this->render('beer', ['beer' => $beer]);
         }
 
         return $this->render('add_beer', ['messages' => $this->messages]);
     }
 
-    public function search() {
+    public function search($query) {
         $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 
         if($contentType === "application/json") {
