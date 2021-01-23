@@ -16,7 +16,15 @@
         <div class="main-page">
             <form class="register-form" action="register" method="POST">
                 <h1>Rejestracja</h1>
-
+                <h3>
+                    <?php
+                    if(isset($messages)) {
+                        foreach ($messages as $message) {
+                            echo $message;
+                        }
+                    }
+                    ?>
+                </h3>
                 <div class="login-row">
                     <h4>Nazwa użytkownika</h4>
                     <input name="login" type="text">

@@ -1,4 +1,4 @@
-const form = document.querySelector("form");
+const form = document.querySelector(".register-form");
 const emailinput = form.querySelector('input[name="email"]');
 const confirmedPasswordInput = form.querySelector('input[name="repeat_password"]')
 
