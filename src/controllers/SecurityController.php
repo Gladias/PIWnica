@@ -20,20 +20,20 @@ class SecurityController extends AppController {
         }
 
         $login = $_POST["login"];
-        $password = $_POST["password"];
+        $password =  $_POST["password"];
 
         $user = $userRepository->getUser($login);
 
-        if (!$user or $user->getLogin() !== $login) {
-            return $this->render('login', ['messages' => ['Użytkownik nie istnieje']]);
+        if (!$user) {
+            return $this->render('login', ['messages' => ['Taki użytkownik nie istnieje']]);
         }
 
-        if ($user->getPassword() !== $password) {
-            return $this->render('login', ['messages' => ['Złe hasło']]);
+        if (!password_verify($password, $user->getPassword())) {
+            return $this->render('login', ['messages' => ['Hasło nieprawidłowe']]);
         }
 
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/register");
+        header("Location: {$url}/beers");
     }
 
     public function register() {
