@@ -5,7 +5,7 @@ require_once __DIR__.'/../models/User.php';
 
 class UserRepository extends Repository
 {
-    public function getUser(string $login): ?User
+    public function getUser(string $login, $returnId=false)
     {
         $statement = $this->database->connect()->prepare('
             SELECT * FROM public.users WHERE login = :login
@@ -17,6 +17,10 @@ class UserRepository extends Repository
 
         if ($user == false) {
             return null;
+        }
+
+        if ($returnId) {
+            return $user['id'];
         }
 
         return new User(

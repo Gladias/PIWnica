@@ -16,18 +16,9 @@
         <?php include('nav-bar.php') ?>
         <div class="main-page">
             <div class="beer-section">
-                <img class="beer-image" src="public/uploads/<?= $beer->getImage() ?>" alt="Beer image">
+                <img class="beer-image" src="public/img/beer-placeholder.jpg" alt="Beer image">
                 <div class="info">
-                    <div class="info-head">
-                        <h1><?= $beer->getName(); ?></h1>
-                        <div class="stars">
-                            <i id="star_1" class="fas fa-star checked"></i>
-                            <i id="star_2" class="fas fa-star"></i>
-                            <i id="star_3" class="fas fa-star"></i>
-                            <i id="star_4" class="fas fa-star"></i>
-                            <i id="star_5" class="fas fa-star"></i>
-                        </div>
-                    </div>
+                    <h1><?= $beer->getName(); ?></h1>
                     <div class="details">
                         <div class="details-row">
                             <h3>Ocena</h3>
@@ -88,19 +79,22 @@
             <div class="comments-section">
                 <h1>Komentarze</h1>
                 <?php if (isset($_SESSION["login"])): ?>
-                    <div class="comment">
-                        <img class="author-image" src="public/img/comments-placeholder.jpg" alt="Author">
-                        <h4 class="author">T_Kopyra</h4>
-                        <textarea name="description" cols="45" rows="5" placeholder="Wpisz komentarz"></textarea>
-                        <h4 class="comment-rate">Twoja cena piwa:</h4>
-                        <div class="comment-stars">
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
+                    <form class="new-comment" action="addComment" method="POST" enctype="multipart/form-data">
+                        <textarea name="content" cols="45" rows="5" placeholder="Wpisz komentarz"></textarea>
+                        <div class="new-rate">
+                            <h4 class="comment-rate">Twoja cena piwa:</h4>
+                            <div class="stars">
+                                <i id="star_1" class="fas fa-star"></i>
+                                <i id="star_2" class="fas fa-star"></i>
+                                <i id="star_3" class="fas fa-star"></i>
+                                <i id="star_4" class="fas fa-star"></i>
+                                <i id="star_5" class="fas fa-star"></i>
+                            </div>
                         </div>
-                    </div>
+                        <input type="hidden" id="rate" name="rate" value="0">
+                        <input type="hidden" name="beer_id" value="<?= substr($_SERVER['REQUEST_URI'], 9) ?>">
+                        <button type="submit">Dodaj komentarz</button>
+                    </form>
                 <?php else: ?>
                     <div class="not_logged">
                         <h4>Musisz być zalogowany by dodać komentarz</h4>
@@ -115,11 +109,16 @@
                         <p class="comment-content"><?= $comment->getContent(); ?></p>
                         <h4 class="comment-rate">Ocena piwa</h4>
                         <div class="comment-stars">
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
+                            <?php
+                            $n = $comment->getRate();
+
+                            for ($i = 0; $i < $n; $i++): ?>
+                                <i class="fas fa-star yellow-stars"></i>
+                            <?php
+                            endfor;
+                            for ($i = 0; $i < 5 - $n; $i++): ?>
+                                <i class="fas fa-star"></i>
+                            <?php endfor;?>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -127,20 +126,3 @@
         </div>
     </div>
 </body>
-
-<template id="comment-template">
-    <div class="comment">
-        <h4 class="date"></h4>
-        <img class="author-image" src="public/img/comments-placeholder.jpg" alt="Author">
-        <h4 class="author"></h4>
-        <p class="comment-content"></p>
-        <h4 class="comment-rate">Ocena piwa</h4>
-        <div class="comment-stars">
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-        </div>
-    </div>
-</template>

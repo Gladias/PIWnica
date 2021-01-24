@@ -9,7 +9,7 @@ class Comment
     private $author;
     private $rate;
 
-    public function __construct($content, $created_at, $id_beer, $author, $rate)
+    public function __construct($content, $author, $rate, $id_beer, $created_at = null)
     {
         $this->content = $content;
         $this->created_at = $created_at;

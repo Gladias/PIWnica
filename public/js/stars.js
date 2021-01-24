@@ -1,7 +1,7 @@
 function count(){
     let stars = 0;
     for(let i = 1; i <= 5; i++){
-        if(document.getElementById("star_" + i).style.color==="yellow"){
+        if(document.getElementById("star_" + i).style.color==="#DFC149"){
             stars++;
         }
     }
@@ -19,7 +19,7 @@ function hover() {
 
         function onmouseover() {
             for(let j = i; j > 0; j--)
-                document.getElementById(star + j).style.color = "yellow";
+                document.getElementById(star + j).style.color = "#DFC149";
         }
 
         function onmouseout() {
@@ -35,12 +35,11 @@ function hover() {
                 for(let k = i + 1; k <= 5; k++)
                     document.getElementById(star + k).style.color = "white";
                 for(let k = i; k > 0; k--)
-                    document.getElementById(star + k).style.color = "yellow";
+                    document.getElementById(star + k).style.color = "#DFC149";
             }
 
-            let rate = countStars();
+            let rate = count();
             document.getElementById('rate').value = rate;
-            if(rate > 0) showSubmit();
         }
     }
 }

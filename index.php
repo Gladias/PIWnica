@@ -15,6 +15,7 @@ Routing::get('logout', "SecurityController");
 Routing::get('beer', 'BeerController');
 Routing::get('beers', 'BeerController');
 Routing::post('addBeer', 'BeerController');
+Routing::post('addComment', 'BeerController');
 Routing::post('search', 'BeerController');
 Routing::post('login', 'SecurityController');
 Routing::post('register', 'SecurityController');

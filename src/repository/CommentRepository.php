@@ -9,7 +9,8 @@ class CommentRepository extends Repository
         $result = [];
 
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM beers_comments JOIN users ON beers_comments.id_user = users.id WHERE id_beer = :id;
+            SELECT * FROM beers_comments JOIN users ON beers_comments.id_user = users.id 
+            WHERE id_beer = :id ORDER BY beers_comments.id DESC;
         ');
         $stmt->bindParam(':id', $beer_id, PDO::PARAM_INT);
         $stmt->execute();
@@ -19,17 +20,30 @@ class CommentRepository extends Repository
         foreach ($comments as $comment) {
             $result[] = new Comment(
                 $comment['content'],
-                $comment['created_at'],
-                $comment['id_beer'],
                 $comment['login'],
-                $comment['rate']
+                $comment['rate'],
+                $comment['id_beer'],
+                $comment['created_at']
             );
         }
 
         return $result;
     }
 
-    public function addComment() {
+    public function addComment(Comment $comment, $user_id) {
+        $date = new DateTime();
 
+        $stmt = $this->database->connect()->prepare('
+            INSERT INTO beers_comments (content, created_at, id_user, id_beer, rate)
+            VALUES (?, ?, ?, ?, ?)
+        ');
+
+        $stmt->execute([
+            $comment->getContent(),
+            $date->format('Y-m-d'),
+            $user_id,
+            $comment->getIdBeer(),
+            $comment->getRate()
+        ]);
     }
 }

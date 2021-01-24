@@ -4,6 +4,7 @@ require_once 'AppController.php';
 require_once __DIR__ .'/../models/Beer.php';
 require_once __DIR__.'/../repository/BeerRepository.php';
 require_once __DIR__.'/../repository/CommentRepository.php';
+require_once __DIR__.'/../repository/UserRepository.php';
 
 class BeerController extends AppController {
 
@@ -14,19 +15,24 @@ class BeerController extends AppController {
     private $messages = [];
     private $beerRepository;
     private $commentRepository;
+    private $userRepository;
 
 
     public function __construct() {
         parent::__construct();
         $this->beerRepository = new BeerRepository();
         $this->commentRepository = new CommentRepository();
+        $this->userRepository = new UserRepository();
     }
 
-    public function beer($id) {
-        if(!isset($_GET['id']))
+    public function beer($given_id) {
+        if(!isset($_GET['id']) && !$given_id)
             return $this->render('search');
 
-        $id = (int)$_GET['id'];
+        if($given_id)
+            $id = $given_id;
+        else
+            $id = (int)$_GET['id'];
 
         $beer = $this->beerRepository->getBeer($id);
         $comments = $this->commentRepository->getComments($id);
@@ -60,8 +66,18 @@ class BeerController extends AppController {
         return $this->render('search', ['query' => $_GET['query'], 'beers' => $result]);
     }
 
+    public function addComment() {
+        if ($this->isPost()) {
+            $comment = new Comment($_POST['content'], $_SESSION['login'], $_POST['rate'], $_POST['beer_id']);
+            $user_id = $this->userRepository->getUser($_SESSION['login'], True);
+            $this->commentRepository->addComment($comment, $user_id);
+
+            return $this->beer($_POST['beer_id']);
+        }
+    }
+
     public function addBeer() {
-        if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file']) ) {
+        if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file']) ) {
             move_uploaded_file(
                 $_FILES['file']['tmp_name'],
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']

@@ -44,23 +44,6 @@
     /*margin: 2rem 3rem;*/
 }
 
-.info-head {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.stars {
-    color: white;
-    font-size: 1.2rem;
-    text-shadow: 0 0 0.25rem black;
-}
-
-.stars:hover {
-    cursor: pointer;
-}
-
 .details {
     background: #DBB06B 0 0 no-repeat padding-box;
     box-shadow: 0 3px 6px #00000029;
@@ -109,6 +92,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: auto;
 }
 
 .date {
@@ -147,12 +131,60 @@
 
 .comment-rate {
     grid-area: rate;
+    margin-top: 0.2rem;
 }
 
 .comment-stars {
+    align-self: start;
     grid-area: star;
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
+    margin-top: 0.2rem;
+}
+
+.new-comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+}
+
+.new-comment textarea {
+    resize: none;
+}
+
+.new-comment button {
+    text-shadow: 0 3px 6px #00000029;
+    background: #DFC149 0 0 no-repeat padding-box;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+}
+
+.new-rate {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-rate i {
+    font-size: 1.5rem;
+}
+
+.stars {
+    color: white;
+    font-size: 1.2rem;
+    text-shadow: 0 0 0.25rem black;
+}
+
+.yellow-stars {
+    color: #DFC149;
+}
+
+.stars:hover {
+    cursor: pointer;
 }
 
 .comment {
@@ -191,7 +223,7 @@
     border-radius: 0.5rem;
 }
 
-.not_logged button:hover {
+.not_logged button:hover, .new-comment button:hover {
     background-color: #E3BE29;
     cursor: pointer;
 }
@@ -204,19 +236,19 @@
 
 /* Scrollbar styles */
 
-.comment-content::-webkit-scrollbar-track, .description::-webkit-scrollbar-track
+.comment-content::-webkit-scrollbar-track, .description::-webkit-scrollbar-track, .comments-section::-webkit-scrollbar-track
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     background-color: #F5F5F5;
 }
 
-.comment-content::-webkit-scrollbar, .description::-webkit-scrollbar
+.comment-content::-webkit-scrollbar, .description::-webkit-scrollbar, .comments-section::-webkit-scrollbar
 {
     width: 8px;
     background-color: #F5F5F5;
 }
 
-.comment-content::-webkit-scrollbar-thumb, .description::-webkit-scrollbar-thumb
+.comment-content::-webkit-scrollbar-thumb, .description::-webkit-scrollbar-thumb, .comments-section::-webkit-scrollbar-thumb
 {
     background-color: #F90;
     background-image: -webkit-linear-gradient(45deg,
