@@ -44,6 +44,23 @@
     /*margin: 2rem 3rem;*/
 }
 
+.info-head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stars {
+    color: white;
+    font-size: 1.2rem;
+    text-shadow: 0 0 0.25rem black;
+}
+
+.stars:hover {
+    cursor: pointer;
+}
+
 .details {
     background: #DBB06B 0 0 no-repeat padding-box;
     box-shadow: 0 3px 6px #00000029;
@@ -148,7 +165,7 @@
     grid-template-rows: 0.7fr 1.3fr 1.3fr 0.7fr;
     gap: 5px 5px;
     grid-template-areas:
-    ". . . date"
+    ". . date date"
     "image content content content"
     "author content content content"
     ". rate star star";
@@ -156,6 +173,28 @@
     align-items: center;
 }
 
+.not_logged {
+    display: flex;
+    flex-direction: column;
+    height: 15%;
+    width: 90%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.not_logged button {
+    width: 30%;
+    height: 60%;
+    text-shadow: 0 3px 6px #00000029;
+    background: #DFC149 0 0 no-repeat padding-box;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+.not_logged button:hover {
+    background-color: #E3BE29;
+    cursor: pointer;
+}
 
 .comment img {
     width: 3rem;

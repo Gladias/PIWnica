@@ -3,6 +3,7 @@
 require_once 'AppController.php';
 require_once __DIR__ .'/../models/Beer.php';
 require_once __DIR__.'/../repository/BeerRepository.php';
+require_once __DIR__.'/../repository/CommentRepository.php';
 
 class BeerController extends AppController {
 
@@ -12,11 +13,13 @@ class BeerController extends AppController {
 
     private $messages = [];
     private $beerRepository;
+    private $commentRepository;
 
 
     public function __construct() {
         parent::__construct();
         $this->beerRepository = new BeerRepository();
+        $this->commentRepository = new CommentRepository();
     }
 
     public function beer($id) {
@@ -26,8 +29,9 @@ class BeerController extends AppController {
         $id = (int)$_GET['id'];
 
         $beer = $this->beerRepository->getBeer($id);
+        $comments = $this->commentRepository->getComments($id);
 
-        $this->render('beer', ['beer' => $beer]);
+        $this->render('beer', ['beer' => $beer, 'comments' => $comments]);
     }
 
     public function beers($query) {
