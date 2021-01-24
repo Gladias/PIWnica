@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
     <script type="text/javascript" src="public/js/search.js" defer></script>
+    <link rel="icon" type="image/png" href="public/img/favicon.png"/>
     <title>Logowanie</title>
 </head>
 
@@ -26,11 +27,11 @@
                 </h3>
                 <div class="login-row">
                     <h4>Nazwa użytkownika</h4>
-                    <input name="login" type="text">
+                    <input name="login" type="text" required>
                 </div>
                 <div class="login-row">
                     <h4>Hasło</h4>
-                    <input name="password" type="password">
+                    <input name="password" type="password" required>
                 </div>
                 <p>Przypomnij hasło</p>
                 <button type="submit">Zaloguj</button>

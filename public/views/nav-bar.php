@@ -1,5 +1,7 @@
 <nav class="nav-bar">
-    <img id="logo" src="public/img/logo.png">
+    <a id="logo" href="start">
+        <img src="public/img/logo.png">
+    </a>
     <?php if (substr( $_SERVER['REQUEST_URI'], 0, 6 ) === "/beers"): ?>
         <div class="search-bar">
             <input type="search" placeholder="Szukaj piw...">

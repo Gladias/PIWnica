@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
     <script type="text/javascript" src="public/js/script.js" defer></script>
     <script type="text/javascript" src="public/js/search.js" defer></script>
+    <link rel="icon" type="image/png" href="public/img/favicon.png"/>
     <title>Rejestracja</title>
 </head>
 
@@ -27,19 +28,19 @@
                 </h3>
                 <div class="login-row">
                     <h4>Nazwa użytkownika</h4>
-                    <input name="login" type="text">
+                    <input name="login" type="text" required>
                 </div>
                 <div class="login-row">
                     <h4>Hasło</h4>
-                    <input name="password" type="password">
+                    <input name="password" type="password" required>
                 </div>
                 <div class="login-row">
                     <h4>Potwierdź hasło</h4>
-                    <input name="repeat_password" type="password">
+                    <input name="repeat_password" type="password" required>
                 </div>
                 <div class="login-row">
                     <h4>Adres e-mail</h4>
-                    <input name="email" type="text">
+                    <input name="email" type="text" required>
                 </div>
                 <button type="submit">Zarejestruj</button>
             </form>

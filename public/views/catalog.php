@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/catalog.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="public/img/favicon.png"/>
     <title>Katalog piw</title>
 </head>
 
