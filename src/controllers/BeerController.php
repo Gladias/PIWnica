@@ -72,7 +72,9 @@ class BeerController extends AppController {
             $user_id = $this->userRepository->getUser($_SESSION['login'], True);
             $this->commentRepository->addComment($comment, $user_id);
 
-            return $this->beer($_POST['beer_id']);
+            /*$this->beer($_POST['beer_id']); */
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/beer?id={$_POST['beer_id']}");
         }
     }
 

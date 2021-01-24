@@ -82,7 +82,7 @@
                     <form class="new-comment" action="addComment" method="POST" enctype="multipart/form-data">
                         <textarea name="content" cols="45" rows="5" placeholder="Wpisz komentarz"></textarea>
                         <div class="new-rate">
-                            <h4 class="comment-rate">Twoja cena piwa:</h4>
+                            <h4>Twoja ocena piwa:</h4>
                             <div class="stars">
                                 <i id="star_1" class="fas fa-star"></i>
                                 <i id="star_2" class="fas fa-star"></i>

@@ -1,7 +1,7 @@
 function count(){
     let stars = 0;
     for(let i = 1; i <= 5; i++){
-        if(document.getElementById("star_" + i).style.color==="#DFC149"){
+        if(document.getElementById("star_" + i).style.color === "rgb(223, 193, 73)"){
             stars++;
         }
     }
