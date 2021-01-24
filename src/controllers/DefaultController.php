@@ -6,7 +6,7 @@ class DefaultController extends AppController {
     
     public function index() {
         // TODO: display main page
-        $this->render('login');
+        $this->render('start');
     }
 
     public function register() {

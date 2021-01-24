@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once 'AppController.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../repository/UserRepository.php';
@@ -31,6 +33,8 @@ class SecurityController extends AppController {
         if (!password_verify($password, $user->getPassword())) {
             return $this->render('login', ['messages' => ['Hasło nieprawidłowe']]);
         }
+
+        $_SESSION["login"] = $user->getLogin();
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/beers");
@@ -64,5 +68,13 @@ class SecurityController extends AppController {
         $this->userRepository->addUser($user);
 
         return $this->render('login', ['messages' => ['Rejestracja przebiegła pomyślnie']]);
+    }
+
+    public function logout() {
+        session_unset();
+        session_destroy();
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/start");
     }
 }
