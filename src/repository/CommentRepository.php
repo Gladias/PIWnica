@@ -46,4 +46,15 @@ class CommentRepository extends Repository
             $comment->getRate()
         ]);
     }
+
+    public function userAlreadyRated($user_id) {
+        $stmt = $this->database->connect()->prepare('
+            SELECT 1 FROM beers_comments WHERE id_user = :id
+        ');
+
+        $stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        var_dump($stmt);
+    }
 }

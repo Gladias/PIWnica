@@ -15,17 +15,24 @@
         <?php include('nav-bar.php') ?>
         <div class="catalog-container">
             <div class="catalog-title">
-                <h2>Wybierz gatunek piw: </h2>
+                <h2>Wybrany gatunek: </h2>
                 <select name="types" id="type_select">
+                    <option value="" selected disabled hidden>Gatunki</option>
                     <?php foreach ($types as $type): ?>
                         <option value="<?= $type["type"] ?>"><?= $type["type"] ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
-            <div class="catalog-bar">
-                <h2>Nazwa</h2>
-                <h2>Ocena</h2>
-                <h2>Ilość ocen</h2>
+            <div class="catalog-nav">
+                <div>
+                    <h2>Nazwa</h2>
+                </div>
+                <div>
+                    <h2>Ocena</h2>
+                </div>
+                <div>
+                    <h2>Ilość ocen</h2>
+                </div>
             </div>
             <section class="best-beers">
             </section>
@@ -34,9 +41,15 @@
 </body>
 
 <template id="beer-template">
-    <a class="search-result" href="">
-        <h2 class="name">1. Kormoran Imperium Prunum</h2>
-        <h2 class="rating">4.71</h2>
-        <h2 class="votes">345</h2>
+    <a class="catalog-bar" href="">
+        <div>
+            <h2 class="name">1. Kormoran Imperium Prunum</h2>
+        </div>
+        <div>
+            <h2 class="rating">4.71</h2>
+        </div>
+        <div>
+            <h2 class="votes">345</h2>
+        </div>
     </a>
 </template>

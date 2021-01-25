@@ -27,7 +27,9 @@ class BeerRepository extends Repository
             $beer['brewery'],
             $beer['country'],
             $beer['alcohol'],
-            $beer['price']
+            $beer['price'],
+            $beer['rates_sum'],
+            $beer['rates_number']
         );
     }
 
@@ -81,5 +83,15 @@ class BeerRepository extends Repository
         $stmt->bindParam(':type', $type, PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function addRate($beer_id, $rate) {
+        $stmt = $this->database->connect()->prepare('
+            UPDATE beers SET rates_sum = rates_sum + :rate, rates_number = rates_number + 1 WHERE id = :id
+         ');
+
+        $stmt->bindParam(':rate', $rate, PDO::PARAM_STR);
+        $stmt->bindParam(':id', $beer_id, PDO::PARAM_STR);
+        $stmt->execute();
     }
 }

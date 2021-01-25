@@ -19,18 +19,56 @@
     justify-content: flex-start;
 }
 
-.catalog-title, .catalog-bar, .catalog-element {
+.catalog-title, .catalog-bar, .catalog-nav {
     background: #FFFFFF 0 0 no-repeat padding-box;
     border: 1px solid #707070;
-    border-radius: 31px;
+    border-radius: 2rem;
     opacity: 1;
-    padding: 0 0.5em;
     margin-top: 0.5em;
 }
 
-.catalog-bar, .catalog-element {
+.catalog-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 20%;
+    margin: 0.5rem 1rem;
+}
+
+select {
+    height: 50%;
+    background-color: #DFC149;
+    align-self: center;
+}
+
+.best-beers {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.catalog-bar, .catalog-nav{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    width: 100%;
+}
+
+.catalog-nav {
     width: 60%;
+}
+
+.catalog-bar div, .catalog-nav div {
+    flex-direction: row;
+    text-align: center;
+    width: calc(100% / 3);
+}
+
+.catalog-bar:hover {
+    background-color: #eed15e;
+}
+
+a:link, h2 {
+    text-decoration: none;
+    color: black;
 }

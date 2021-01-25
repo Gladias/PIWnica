@@ -27,7 +27,7 @@
                                     if ($beer->getRatesNumber() === 0)
                                         echo "0/5";
                                     else
-                                        echo strval($beer->getRatesSum()/$beer->getRatesNumber())."/5";
+                                        echo strval(round($beer->getRatesSum()/$beer->getRatesNumber(), 3))."/5";
                                     ?></h3>
                                 <i class="fas fa-star"></i>
                             </div>

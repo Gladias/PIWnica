@@ -31,7 +31,7 @@ function createBeer(beer) {
 
     const clone = template.content.cloneNode(true);
 
-    const a = clone.querySelector(".search-result");
+    const a = clone.querySelector(".catalog-bar");
     a.href = `beer?id=` + beer.id;
     a.id = beer.id;
     const name = clone.querySelector(".name");
