@@ -77,6 +77,7 @@ class BeerController extends AppController {
             $comment = new Comment($_POST['content'], $_SESSION['login'], $_POST['rate'], $_POST['beer_id']);
             $user_id = $this->userRepository->getUser($_SESSION['login'], True);
 
+
             $this->commentRepository->addComment($comment, $user_id);
             $this->beerRepository->addRate($_POST['beer_id'], $_POST['rate']);
 
@@ -106,8 +107,7 @@ class BeerController extends AppController {
 
             $this->beerRepository->addBeer($beer);
 
-
-            return $this->render('beer', ['beer' => $beer]);
+            return $this->render('search');
         }
 
         return $this->render('add_beer', ['messages' => $this->messages]);

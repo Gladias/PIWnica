@@ -8,38 +8,52 @@ class UserRepository extends Repository
     public function getUser(string $login, $returnId=false)
     {
         $statement = $this->database->connect()->prepare('
-            SELECT * FROM public.users WHERE login = :login
+            SELECT users.id AS user_id, users.login, users.email, users.role_id, roles.name, roles.description
+            FROM users JOIN roles ON users.role_id=roles.id WHERE login = :login
         ');
         $statement->bindParam(':login', $login, PDO::PARAM_STR);
         $statement->execute();
 
-        $user = $statement->fetch(PDO::FETCH_ASSOC);
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-        if ($user == false) {
+        if ($result == false) {
             return null;
         }
 
         if ($returnId) {
-            return $user['id'];
+            return $result['user_id'];
         }
 
         return new User(
-            $user['login'],
-            $user['email'],
-            $user['password'],
+            $result['login'],
+            $result['email'],
+            $result['password'],
+            $result['name']
         );
     }
 
     public function addUser(User $user) {
+        $get_role_id = $this->database->connect()->prepare('
+            SELECT * FROM roles WHERE name = :name
+        ');
+
+        $role_name = $user->getRole();
+        $get_role_id->bindParam(':id', $role_name, PDO::PARAM_STR);
+        $get_role_id->execute();
+
+        $role = $get_role_id->fetch(PDO::FETCH_ASSOC);
+
+
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO users (login, email, password)
-            VALUES (?, ?, ?)
+            INSERT INTO users (login, email, password, role_id)
+            VALUES (?, ?, ?, ?)
         ');
 
         $stmt->execute([
             $user->getLogin(),
             $user->getEmail(),
-            $user->getPassword()
+            $user->getPassword(),
+            $role['id']
         ]);
     }
 }

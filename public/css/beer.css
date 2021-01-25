@@ -101,6 +101,11 @@
     align-self: end;
 }
 
+.date i {
+    color: red;
+    font-size: 1.2rem;
+}
+
 .author-image {
     grid-area: image;
 }

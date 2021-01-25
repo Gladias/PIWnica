@@ -103,7 +103,13 @@
                 <?php endif; ?>
                 <?php foreach ($comments as $comment): ?>
                     <div class="comment">
-                        <h4 class="date"><?= $comment->getCreatedAt(); ?></h4>
+                        <h4 class="date">
+                            <?php
+                                echo $comment->getCreatedAt();
+                                if ($_SESSION['role'] === "moderator"): ?>
+                                    <i class="fas fa-times"></i>
+                            <?php endif;?>
+                        </h4>
                         <img class="author-image" src="public/img/comments-placeholder.jpg" alt="Author">
                         <h4 class="author"><?= $comment->getAuthor(); ?></h4>
                         <p class="comment-content"><?= $comment->getContent(); ?></p>

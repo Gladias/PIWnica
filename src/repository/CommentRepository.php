@@ -37,7 +37,6 @@ class CommentRepository extends Repository
             INSERT INTO beers_comments (content, created_at, id_user, id_beer, rate)
             VALUES (?, ?, ?, ?, ?)
         ');
-
         $stmt->execute([
             $comment->getContent(),
             $date->format('Y-m-d'),
@@ -54,7 +53,5 @@ class CommentRepository extends Repository
 
         $stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
         $stmt->execute();
-
-        var_dump($stmt);
     }
 }

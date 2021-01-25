@@ -33,7 +33,7 @@ class BeerRepository extends Repository
         );
     }
 
-    public function addBeer(Beer $beer): void {
+    public function addBeer(Beer $beer) {
         $stmt = $this->database->connect()->prepare('
             INSERT INTO beers (name, description, image, rates_sum, rates_number, type, brewery, country, alcohol, price)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)

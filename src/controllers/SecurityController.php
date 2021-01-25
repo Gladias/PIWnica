@@ -35,6 +35,7 @@ class SecurityController extends AppController {
         }
 
         $_SESSION["login"] = $user->getLogin();
+        $_SESSION["role"] = $user->getRole();
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/beers");
@@ -74,7 +75,9 @@ class SecurityController extends AppController {
         session_unset();
         session_destroy();
 
-        $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/start");
+        //$url = "http://$_SERVER[HTTP_HOST]";
+        //header("Location: {$url}/start");
+
+        return $this->render('login', ['messages' => ['Zostałeś wylogowany']]);
     }
 }
