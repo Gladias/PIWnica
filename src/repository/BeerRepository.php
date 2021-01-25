@@ -63,4 +63,23 @@ class BeerRepository extends Repository
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getBeerTypes() {
+        $stmt = $this->database->connect()->prepare('
+            SELECT "type" FROM public.beers GROUP BY "type"
+        ');
+
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getBestBeers($type) {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM best_beers WHERE "type" = :type
+        ');
+
+        $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

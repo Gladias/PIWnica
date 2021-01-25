@@ -37,7 +37,7 @@ class BeerController extends AppController {
         $beer = $this->beerRepository->getBeer($id);
         $comments = $this->commentRepository->getComments($id);
 
-        $this->render('beer', ['beer' => $beer, 'comments' => $comments]);
+        return $this->render('beer', ['beer' => $beer, 'comments' => $comments]);
     }
 
     public function beers($query) {
@@ -64,6 +64,12 @@ class BeerController extends AppController {
         }
 
         return $this->render('search', ['query' => $_GET['query'], 'beers' => $result]);
+    }
+
+    public function catalog() {
+        $types = $this->beerRepository->getBeerTypes();
+
+        return $this->render('catalog', ['types' => $types]);
     }
 
     public function addComment() {
@@ -105,18 +111,38 @@ class BeerController extends AppController {
         return $this->render('add_beer', ['messages' => $this->messages]);
     }
 
+    public function bestBeersSearch() {
+        $decoded = $this->validRequest();
+
+        if ($decoded) {
+            header('Content-type: application/json');
+            http_response_code(200);
+
+            echo json_encode($this->beerRepository->getBestBeers($decoded['search']));
+        }
+    }
+
     public function search($query) {
+        $decoded = $this->validRequest();
+
+        if ($decoded) {
+            header('Content-type: application/json');
+            http_response_code(200);
+
+            echo json_encode($this->beerRepository->getBeerByName($decoded['search']));
+        }
+    }
+
+    private function validRequest() {
         $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 
         if($contentType === "application/json") {
             $content = trim(file_get_contents("php://input"));
             $decoded = json_decode($content, true);
 
-            header('Content-type: application/json');
-            http_response_code(200);
-
-            echo json_encode($this->beerRepository->getBeerByName($decoded['search']));
+            return $decoded;
         }
+        return null;
     }
 
     private function validate(array $file): bool {
