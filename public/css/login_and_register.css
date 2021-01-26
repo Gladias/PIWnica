@@ -76,7 +76,7 @@
     outline: none;
 }
 
-@media only screen and (max-device-width: 420px) {
+@media only screen and (max-device-width: 768px) {
     * {
         font-size: 36px;
     }

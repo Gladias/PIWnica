@@ -5,8 +5,7 @@ require_once 'AppController.php';
 class DefaultController extends AppController {
     
     public function index() {
-        // TODO: display main page
-        $this->render('start');
+        $this->render('search');
     }
 
     public function register() {
@@ -21,15 +20,7 @@ class DefaultController extends AppController {
         $this->render('catalog');
     }
 
-    public function news() {
-        $this->render('news');
-    }
-
     public function search() {
         $this->render('search');
-    }
-
-    public function start() {
-        $this->render('start');
     }
 }

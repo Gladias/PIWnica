@@ -7,8 +7,6 @@ $path = parse_url($path, PHP_URL_PATH);
 
 Routing::get('', 'DefaultController');
 Routing::get('index', 'DefaultController');
-Routing::get('news', 'DefaultController');
-Routing::get('start', 'DefaultController');
 Routing::get('logout', "SecurityController");
 
 Routing::get('catalog', 'BeerController');

@@ -27,7 +27,9 @@
         </div>
 
         <section class="beers">
-            <?php foreach ($beers as $beer): ?>
+            <?php
+            if (isset($beers)):
+                foreach ($beers as $beer): ?>
                 <a class="search-result" id="<?= $beer->getId(); ?>" href="beer?id=<?= $beer->getId(); ?>">
                     <img class="beer" src="public/img/beer-placeholder.jpg" alt="Beer">
                     <h3 class="title"><?= $beer->getName(); ?></h3>
@@ -35,7 +37,10 @@
                         <?= $beer->getDescription(); ?>
                     </p>
                 </a>
-            <?php endforeach; ?>
+            <?php
+                endforeach;
+            endif;
+            ?>
         </section>
     </div>
 </div>
