@@ -3,22 +3,34 @@
 
 class Comment
 {
+    private $id;
     private $content;
     private $created_at;
     private $id_beer;
     private $author;
     private $rate;
 
-    public function __construct($content, $author, $rate, $id_beer, $created_at = null)
+    public function __construct($content, $author, $rate, $id_beer, $created_at = null, $id=null)
     {
         $this->content = $content;
         $this->created_at = $created_at;
         $this->author = $author;
         $this->id_beer = $id_beer;
         $this->rate = $rate;
+        $this->id = $id;
     }
 
     /* Getters and setters */
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
 
     public function getContent()
     {

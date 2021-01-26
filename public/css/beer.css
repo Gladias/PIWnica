@@ -99,11 +99,24 @@
     grid-area: date;
     margin-bottom: 0.2rem;
     align-self: end;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .date i {
     color: red;
     font-size: 1.2rem;
+}
+
+.date form button {
+    border-radius: 1rem;
+}
+
+.date form button:hover {
+    background-color: #707070;
 }
 
 .author-image {

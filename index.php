@@ -16,6 +16,7 @@ Routing::get('beer', 'BeerController');
 Routing::get('beers', 'BeerController');
 Routing::post('addBeer', 'BeerController');
 Routing::post('addComment', 'BeerController');
+Routing::post('deleteComment', 'BeerController');
 Routing::post('search', 'BeerController');
 Routing::post('bestBeersSearch', 'BeerController');
 Routing::post('login', 'SecurityController');

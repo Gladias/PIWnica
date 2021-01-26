@@ -9,7 +9,8 @@ class CommentRepository extends Repository
         $result = [];
 
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM beers_comments JOIN users ON beers_comments.id_user = users.id 
+            SELECT beers_comments.id AS comment_id, content, created_at, login, id_beer, rate
+            FROM beers_comments JOIN users ON beers_comments.id_user = users.id 
             WHERE id_beer = :id ORDER BY beers_comments.id DESC;
         ');
         $stmt->bindParam(':id', $beer_id, PDO::PARAM_INT);
@@ -23,7 +24,8 @@ class CommentRepository extends Repository
                 $comment['login'],
                 $comment['rate'],
                 $comment['id_beer'],
-                $comment['created_at']
+                $comment['created_at'],
+                $comment['comment_id'],
             );
         }
 
@@ -44,6 +46,15 @@ class CommentRepository extends Repository
             $comment->getIdBeer(),
             $comment->getRate()
         ]);
+    }
+
+    public function deleteComment($comment_id) {
+        $stmt = $this->database->connect()->prepare('
+            DELETE FROM beers_comments WHERE id = :comment_id
+        ');
+
+        $stmt->bindParam(':comment_id', $comment_id, PDO::PARAM_STR);
+        $stmt->execute();
     }
 
     public function userAlreadyRated($user_id) {

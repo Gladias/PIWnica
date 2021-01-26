@@ -107,7 +107,13 @@
                             <?php
                                 echo $comment->getCreatedAt();
                                 if ($_SESSION['role'] === "moderator"): ?>
-                                    <i class="fas fa-times"></i>
+                                    <form action="deleteComment" method="POST" enctype="multipart/form-data">
+                                        <input type="hidden" name="beer_id" value="<?= substr($_SERVER['REQUEST_URI'], 9) ?>">
+                                        <input type="hidden" name="comment_id" value="<?= $comment->getId(); ?>">
+                                        <button type="submit">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </form>
                             <?php endif;?>
                         </h4>
                         <img class="author-image" src="public/img/comments-placeholder.jpg" alt="Author">

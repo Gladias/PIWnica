@@ -77,11 +77,19 @@ class BeerController extends AppController {
             $comment = new Comment($_POST['content'], $_SESSION['login'], $_POST['rate'], $_POST['beer_id']);
             $user_id = $this->userRepository->getUser($_SESSION['login'], True);
 
-
             $this->commentRepository->addComment($comment, $user_id);
             $this->beerRepository->addRate($_POST['beer_id'], $_POST['rate']);
 
             /*$this->beer($_POST['beer_id']); */
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/beer?id={$_POST['beer_id']}");
+        }
+    }
+
+    public function deleteComment() {
+        if ($this->isPost() && $_SESSION['role'] === 'moderator') {
+            $this->commentRepository->deleteComment($_POST['comment_id']);
+
             $url = "http://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/beer?id={$_POST['beer_id']}");
         }
