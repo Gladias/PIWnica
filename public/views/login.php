@@ -5,7 +5,8 @@
     <link rel="stylesheet" type="text/css" href="public/css/login_and_register.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="public/js/search.js" defer></script>
+    <script src="https://kit.fontawesome.com/6632ce43ac.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="public/js/menu.js" defer></script>
     <link rel="icon" type="image/png" href="public/img/favicon.png"/>
     <title>Logowanie</title>
 </head>

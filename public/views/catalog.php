@@ -4,6 +4,8 @@
     <link rel="stylesheet" type="text/css" href="public/css/nav-bar.css">
     <link rel="stylesheet" type="text/css" href="public/css/catalog.css">
     <script type="text/javascript" src="public/js/type_searching.js" defer></script>
+    <script type="text/javascript" src="public/js/menu.js" defer></script>
+    <script src="https://kit.fontawesome.com/6632ce43ac.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="public/img/favicon.png"/>

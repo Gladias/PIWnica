@@ -7,9 +7,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="public/img/favicon.png"/>
+    <script type="text/javascript" src="public/js/menu.js" defer></script>
     <title>Rejestracja</title>
 </head>
-<!--TODO: ocena piwa-->
+
 <body>
 <div class="container">
     <?php include('nav-bar.php') ?>

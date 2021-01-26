@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/6632ce43ac.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="public/js/stars.js" defer></script>
+    <script type="text/javascript" src="public/js/menu.js" defer></script>
     <link rel="icon" type="image/png" href="public/img/favicon.png"/>
     <title>Piwo</title>
 </head>

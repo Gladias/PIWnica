@@ -27,7 +27,15 @@ body {
     height: 100%;
 }
 
-.nav-bar button {
+#main-nav {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#main-nav button {
     font-size: 1.6em;
     text-shadow: 0 3px 6px #00000029;
     background: #DFC149 0 0 no-repeat padding-box;
@@ -37,16 +45,88 @@ body {
     outline: none;
 }
 
-.nav-bar button:hover {
+#main-nav button:hover {
     background-color: #E3BE29;
     cursor: pointer;
 }
 
-.search-bar input {
+section input {
     font-size: 1.6em;
     background: #DCD0A0 0 0 no-repeat padding-box;
     border: 1px solid #707070;
     border-radius: 15px;
     padding: 0.4em;
     outline: none;
+}
+
+.hamburger {
+    display: none;
+}
+
+.hamburger i {
+    font-size: 2rem;
+    color: #DFC149;
+}
+
+.mobile-menu {
+    display: none;
+    height: 20%;
+    width: 100%;
+    background-color: #443318;
+}
+
+.mobile-menu section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.mobile-menu section form {
+    display: flex;
+    width: 60%;
+    height: 30%;
+}
+
+.mobile-menu section input {
+    width: 100%;
+    height: 100%;
+}
+
+.mobile-menu section button {
+    font-size: 1.2rem;
+    width: 60%;
+    height: 25%;
+    color: black;
+    background-color: #DFC149;
+    border-radius: 1rem;
+}
+
+
+
+@media only screen and (max-device-width: 1024px) {
+    * {
+        font-size: 36px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h4, p {
+        font-size: 1.2em;
+    }
+
+    #main-nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-bar {
+        justify-content: space-evenly;
+    }
 }

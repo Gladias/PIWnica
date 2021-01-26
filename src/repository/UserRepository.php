@@ -8,7 +8,7 @@ class UserRepository extends Repository
     public function getUser(string $login, $returnId=false)
     {
         $statement = $this->database->connect()->prepare('
-            SELECT users.id AS user_id, users.login, users.email, users.role_id, roles.name, roles.description
+            SELECT users.id AS user_id, users.login, users.email, users.password, users.role_id, roles.name, roles.description
             FROM users JOIN roles ON users.role_id=roles.id WHERE login = :login
         ');
         $statement->bindParam(':login', $login, PDO::PARAM_STR);

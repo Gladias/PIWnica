@@ -76,31 +76,15 @@
     outline: none;
 }
 
-@media only screen and (max-device-width: 768px) {
-    * {
-        font-size: 36px;
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-
+@media only screen and (max-device-width: 1024px) {
     .main-page {
         background-position: center;
         background-size: cover;
     }
 
-    .nav-bar button, .search-bar input {
-        display: none;
-    }
-
-    .nav-bar {
-        justify-content: center;
-    }
-
     .login-form, .register-form {
         width: 90%;
-        height: 80%;
+        height: 90%;
     }
 
     .login-row input {
