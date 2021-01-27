@@ -9,7 +9,7 @@
     <script type="text/javascript" src="public/js/menu.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="public/img/favicon.png"/>
-    <title>Rejestracja</title>
+    <title>Wyszukiwarka</title>
 </head>
 
 <body>
