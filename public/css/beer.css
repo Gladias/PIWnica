@@ -35,7 +35,7 @@
     border: 1px solid #707070;
     border-radius: 1rem;
     opacity: 1;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .info {
@@ -250,6 +250,56 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
+}
+
+@media only screen and (max-device-width: 1024px) {
+
+    .main-page {
+        flex-direction: column;
+        align-items: center;
+        overflow: auto;
+    }
+
+    .beer-section, .comments-section {
+        width: 85%;
+        min-height: 95%;
+        margin-top: 1rem;
+        overflow: auto;
+    }
+
+
+    .beer-section {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .details {
+        width: 100%;
+    }
+
+    .beer-image {
+        border: 0;
+    }
+
+    .beer-image, .info {
+        width: 80%;
+    }
+
+    .info h1 {
+        text-align: center;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    .new-rate i {
+        font-size: 1rem;
+    }
+
+    .stars {
+        width: 60%;
+    }
 }
 
 /* Scrollbar styles */

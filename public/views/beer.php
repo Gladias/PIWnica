@@ -17,7 +17,7 @@
         <?php include('nav-bar.php') ?>
         <div class="main-page">
             <div class="beer-section">
-                <img class="beer-image" src="public/img/beer-placeholder.jpg" alt="Beer image">
+                <img class="beer-image" src="public/uploads/<?= $beer->getImage(); ?>" alt="Beer image">
                 <div class="info">
                     <h1><?= $beer->getName(); ?></h1>
                     <div class="details">

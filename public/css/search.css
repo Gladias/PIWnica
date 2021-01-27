@@ -12,6 +12,10 @@
     justify-content: flex-start;
 }
 
+.beers {
+    overflow: auto;
+}
+
 .main-page {
     background: transparent url('../img/search-background.jpeg') 0 0 no-repeat padding-box;
     background-size: cover;
@@ -29,10 +33,16 @@
     opacity: 0.9;
 }
 
+.top div {
+    margin: 0 0.5rem;
+}
+
 .add-beer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .add-beer i {
@@ -94,21 +104,28 @@
 }
 
 
+@media only screen and (max-device-width: 1024px) {
+
+    .top, .search-result {
+        width: 85%;
+    }
+}
+
 /* Scroll styles */
 
-.description::-webkit-scrollbar-track
+.description::-webkit-scrollbar-track, .beers::-webkit-scrollbar-track
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     background-color: #F5F5F5;
 }
 
-.description::-webkit-scrollbar
+.description::-webkit-scrollbar, .beers::-webkit-scrollbar
 {
     width: 8px;
     background-color: #F5F5F5;
 }
 
-.description::-webkit-scrollbar-thumb
+.description::-webkit-scrollbar-thumb, .beers::-webkit-scrollbar-thumb
 {
     background-color: #F90;
     background-image: -webkit-linear-gradient(45deg,

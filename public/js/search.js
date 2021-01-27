@@ -1,27 +1,30 @@
-const search = document.querySelector('input[placeholder="Szukaj piw..."]');
+let search;
 const beerContainer = document.querySelector(".beers");
 
-search.addEventListener("keyup", function(event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
+setTimeout(function() {
+    search = document.querySelector('input[placeholder="Szukaj piw..."]');
+    search.addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
 
-        const data = {search: this.value};
-        document.querySelector("h2").innerHTML = "Wyniki wyszukiwania dla: " + this.value;
+            const data = {search: this.value};
+            document.querySelector("h2").innerHTML = "Wyniki wyszukiwania dla: " + this.value;
 
-        fetch("/search", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then(function (response) {
-            return response.json();
-        }).then(function (beers) {
-            beerContainer.innerHTML = "";
-            loadBeers(beers)
-        });
-    }
-});
+            fetch("/search", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(function (response) {
+                return response.json();
+            }).then(function (beers) {
+                beerContainer.innerHTML = "";
+                loadBeers(beers)
+            });
+        }
+    });
+}, 1000);
 
 function loadBeers(beers) {
     beers.forEach(beer => {

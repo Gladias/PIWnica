@@ -32,11 +32,11 @@
             </div>
             <div>
                 <h4>Opis</h4>
-                <textarea name="description" cols="45" rows="5" placeholder="Opis piwa"></textarea>
+                <textarea name="description" placeholder="Opis piwa"></textarea>
             </div>
             <div>
                 <h4>Zdjęcie</h4>
-                <input name="file" type="file">
+                <input id="file_input" name="file" type="file">
             </div>
             <div>
                 <h4>Gatunek</h4>
@@ -52,11 +52,11 @@
             </div>
             <div>
                 <h4>Zawartość alkoholu <i class="fas fa-percent"></i></h4>
-                <input name="alcohol" type="text">
+                <input id="alcohol_input" name="alcohol" type="text">
             </div>
             <div>
                 <h4>Cena</h4>
-                <input name="price" type="text">
+                <input id="price_input" name="price" type="text">
             </div>
             <button type="submit">Dodaj piwo</button>
         </form>

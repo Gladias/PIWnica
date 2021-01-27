@@ -32,7 +32,7 @@
             if (isset($beers)):
                 foreach ($beers as $beer): ?>
                 <a class="search-result" id="<?= $beer->getId(); ?>" href="beer?id=<?= $beer->getId(); ?>">
-                    <img class="beer" src="public/img/beer-placeholder.jpg" alt="Beer">
+                    <img class="beer" src="public/uploads/<?= $beer->getImage(); ?>" alt="Beer">
                     <h3 class="title"><?= $beer->getName(); ?></h3>
                     <p class="description">
                         <?= $beer->getDescription(); ?>
