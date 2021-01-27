@@ -38,7 +38,7 @@ class UserRepository extends Repository
         ');
 
         $role_name = $user->getRole();
-        $get_role_id->bindParam(':id', $role_name, PDO::PARAM_STR);
+        $get_role_id->bindParam(':name', $role_name, PDO::PARAM_STR);
         $get_role_id->execute();
 
         $role = $get_role_id->fetch(PDO::FETCH_ASSOC);
